@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Foodie-app-simplon/static/css/main.b10f8191.css",
+    "main.js": "/Foodie-app-simplon/static/js/main.5a427169.js",
+    "index.html": "/Foodie-app-simplon/index.html",
+    "main.b10f8191.css.map": "/Foodie-app-simplon/static/css/main.b10f8191.css.map",
+    "main.5a427169.js.map": "/Foodie-app-simplon/static/js/main.5a427169.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b10f8191.css",
+    "static/js/main.5a427169.js"
+  ]
+}
