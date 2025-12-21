@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Foodie-app-simplon/static/css/main.b10f8191.css",
-    "main.js": "/Foodie-app-simplon/static/js/main.5a427169.js",
-    "index.html": "/Foodie-app-simplon/index.html",
-    "main.b10f8191.css.map": "/Foodie-app-simplon/static/css/main.b10f8191.css.map",
-    "main.5a427169.js.map": "/Foodie-app-simplon/static/js/main.5a427169.js.map"
+    "main.css": "/static/css/main.a7ec29bf.css",
+    "main.js": "/static/js/main.f86dd2e7.js",
+    "index.html": "/index.html",
+    "main.a7ec29bf.css.map": "/static/css/main.a7ec29bf.css.map",
+    "main.f86dd2e7.js.map": "/static/js/main.f86dd2e7.js.map"
   },
   "entrypoints": [
-    "static/css/main.b10f8191.css",
-    "static/js/main.5a427169.js"
+    "static/css/main.a7ec29bf.css",
+    "static/js/main.f86dd2e7.js"
   ]
 }
