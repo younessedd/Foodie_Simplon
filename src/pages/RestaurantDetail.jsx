@@ -190,7 +190,7 @@ const RestaurantDetail = () => {
         <div className="mt-8">
           <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">Menu</h2>
           <div className="flex gap-3 overflow-x-auto pb-4 scrollbar-hide">
-            {categories.slice(0, 10).map((cat) => (
+            {categories.slice(0, 1).map((cat) => (
               <button
                 key={cat.strCategory}
                 onClick={() => setSelectedCategory(cat.strCategory)}

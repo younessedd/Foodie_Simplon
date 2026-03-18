@@ -132,31 +132,44 @@ export const fetchRestaurants = async () => {
     'https://images.unsplash.com/photo-1562967968-56c09c6d8c1c?w=400',
   ];
 
-  const restaurantNames = [
-    'Burger Palace', 'Pizza Heaven', 'Sushi Master', 'Taco Fiesta', 'Pasta Paradise',
-    'Grill House', 'Dragon Wok', 'Mediterranean Delight', 'BBQ Station', 'Thai Orchid',
-    'Golden Dragon', 'Italian Corner', 'Seafood Harbor', 'Curry House', 'Mexican Fiesta',
-    'Korean BBQ', 'French Bistro', 'Vietnamese Kitchen', 'Greek Taverna', 'Indian Spice'
-  ];
+  const cuisineNames = {
+    American: ['Burger Palace', 'Grill Master', 'American Diner', 'BBQ House', 'Steak Ranch', 'Wings & Burgers', 'Classic Grill', 'Patriot Eats'],
+    Italian: ['Pizza Heaven', 'Pasta Paradise', 'Italian Corner', 'Trattoria Roma', 'La Piazza', 'Bella Italia', 'Mama\'s Kitchen', 'Roma Express'],
+    Japanese: ['Sushi Master', 'Tokyo Roll', 'Samurai Sushi', 'Nippon Kitchen', 'Zen Garden', 'Sakura Express', 'Tempura House', 'Ramen World'],
+    Mexican: ['Taco Fiesta', 'Mexican Fiesta', 'El Mariachi', 'Taco Loco', 'Cantina Mexico', 'Spice Route', 'Chili Pepper', 'Guacamole Grill'],
+    Chinese: ['Dragon Wok', 'Golden Dragon', 'Shanghai Express', 'Mandarin Garden', 'Great Wall', 'Wok & Roll', 'Dynasty Restaurant', 'Peking Duck'],
+    Mediterranean: ['Mediterranean Delight', 'Greek Taverna', 'Falafel House', 'Olive Garden', 'Levant Kitchen', 'Aegean Breeze', 'Caspian Grill', 'Santorini'],
+    Indian: ['Curry House', 'Spice Garden', 'Taj Mahal', 'Mumbai Express', 'Namaste India', 'Curry Leaf', 'Punjab Kitchen', 'Bollywood Bites'],
+    Thai: ['Thai Orchid', 'Bangkok Kitchen', 'Pad Thai Express', 'Thai Spice', 'Siam Restaurant', 'Lotus Thai', 'Green Curry House', 'Thai Taste'],
+    Korean: ['Korean BBQ', 'Seoul Kitchen', 'Kimchi House', 'Korean Grill', 'Seoul Food', 'Bulgogi Express', 'Korean Corner', 'Han Korean'],
+    French: ['French Bistro', 'Le Petit Cafe', 'Paris Kitchen', 'La Maison', 'French Corner', 'Boulangerie', 'Cuisine de France', 'Le Jardin'],
+    BBQ: ['BBQ Station', 'Smokehouse', 'Ribs & Wings', 'Texas BBQ', 'Smoky Mountain', 'Grill Masters', 'BBQ Pit', 'Slow Smoke'],
+    Seafood: ['Seafood Harbor', 'Fish & Chips', 'Ocean Catch', 'Crab House', 'Lobster Bay', 'Salty Dog', 'Sea Grill', 'Pacific Seafood'],
+  };
 
-  const cuisines = [
-    'American', 'Italian', 'Japanese', 'Mexican', 'Chinese',
-    'Mediterranean', 'Indian', 'Thai', 'Korean', 'French',
-    'Vietnamese', 'Greek', 'BBQ', 'Seafood', 'Fast Food'
-  ];
+  const cuisines = Object.keys(cuisineNames);
+  const restaurants = [];
+  let id = 1;
 
-  return restaurantNames.map((name, index) => ({
-    id: `rest-${index + 1}`,
-    name,
-    image: restaurantImages[index % restaurantImages.length],
-    cuisine: cuisines[index % cuisines.length],
-    rating: (Math.random() * 2 + 3).toFixed(1),
-    deliveryTime: `${Math.floor(Math.random() * 20 + 15)}-${Math.floor(Math.random() * 15 + 30)} min`,
-    deliveryFee: Math.floor(Math.random() * 3 + 1),
-    priceRange: '$'.repeat(Math.floor(Math.random() * 3) + 1),
-    address: `${Math.floor(Math.random() * 999) + 1} Main Street`,
-    isOpen: Math.random() > 0.2,
-  }));
+  cuisines.forEach(cuisine => {
+    const names = cuisineNames[cuisine];
+    names.forEach((name, index) => {
+      restaurants.push({
+        id: `rest-${id++}`,
+        name,
+        image: restaurantImages[index % restaurantImages.length],
+        cuisine,
+        rating: (Math.random() * 2 + 3).toFixed(1),
+        deliveryTime: `${Math.floor(Math.random() * 20 + 15)}-${Math.floor(Math.random() * 15 + 30)} min`,
+        deliveryFee: Math.floor(Math.random() * 3 + 1),
+        priceRange: '$'.repeat(Math.floor(Math.random() * 3) + 1),
+        address: `${Math.floor(Math.random() * 999) + 1} Main Street`,
+        isOpen: Math.random() > 0.2,
+      });
+    });
+  });
+
+  return restaurants;
 };
 
 // Fetch menu for a specific restaurant

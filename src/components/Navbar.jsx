@@ -77,42 +77,6 @@ const Navbar = () => {
               )}
             </div>
 
-            {/* Restaurants Dropdown */}
-            <div className="relative" ref={restaurantMenuRef}>
-              <button
-                onClick={() => { setShowRestaurantMenu(!showRestaurantMenu); setShowFoodMenu(false); }}
-                className="flex items-center gap-1 px-4 py-2 text-gray-600 dark:text-gray-300 hover:text-orange-500 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
-              >
-                <Store className="w-4 h-4" />
-                Restaurants
-                <ChevronDown className={`w-4 h-4 transition-transform ${showRestaurantMenu ? 'rotate-180' : ''}`} />
-              </button>
-              {showRestaurantMenu && (
-                <div className="absolute top-full left-0 mt-2 w-56 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 py-2">
-                  <Link
-                    to="/restaurants"
-                    onClick={() => setShowRestaurantMenu(false)}
-                    className="flex items-center gap-3 px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
-                  >
-                    <Globe className="w-5 h-5 text-orange-500" />
-                    <span className="text-gray-700 dark:text-gray-300">All Restaurants</span>
-                  </Link>
-                  <div className="border-t border-gray-200 dark:border-gray-700 my-1" />
-                  {cuisines.slice(1, 8).map((cuisine) => (
-                    <Link
-                      key={cuisine}
-                      to={`/restaurants?cuisine=${cuisine}`}
-                      onClick={() => setShowRestaurantMenu(false)}
-                      className="flex items-center gap-3 px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
-                    >
-                      <MapPin className="w-4 h-4 text-gray-400" />
-                      <span className="text-gray-700 dark:text-gray-300">{cuisine}</span>
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-
             <Link
               to="/restaurants"
               className="flex items-center gap-2 px-4 py-2 text-gray-600 dark:text-gray-300 hover:text-orange-500 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"

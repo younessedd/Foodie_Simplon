@@ -20,7 +20,7 @@ const MealCard = ({ meal, index }) => (
           />
           <div className="absolute top-3 right-3 bg-white/90 dark:bg-gray-900/90 px-2 py-1 rounded-full flex items-center gap-1 text-sm font-medium">
             <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
-            <span>{(Math.random() * 2 + 3).toFixed(1)}</span>
+            <span className="dark:text-white">{(Math.random() * 2 + 3).toFixed(1)}</span>
           </div>
           <div className="absolute bottom-3 left-3 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium">
             ${meal.price}
@@ -169,7 +169,7 @@ const Home = () => {
       {/* Categories */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex gap-3 overflow-x-auto pb-4 scrollbar-hide">
-          {categories.map((cat) => (
+          {categories.slice(0, 1).map((cat) => (
             <button
               key={cat.strCategory}
               onClick={() => setSelectedCategory(cat.strCategory)}
