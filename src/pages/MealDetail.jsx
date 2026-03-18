@@ -134,14 +134,14 @@ const MealDetail = () => {
                     onClick={() => setQuantity(Math.max(1, quantity - 1))}
                     className="w-10 h-10 rounded-full bg-white dark:bg-gray-600 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-500 transition-colors"
                   >
-                    <Minus className="w-4 h-4" />
+                    <Minus className="w-4 h-4 text-gray-600 dark:text-white" />
                   </button>
-                  <span className="w-8 text-center font-semibold">{quantity}</span>
+                  <span className="w-8 text-center font-semibold text-gray-700 dark:text-white">{quantity}</span>
                   <button
                     onClick={() => setQuantity(quantity + 1)}
                     className="w-10 h-10 rounded-full bg-white dark:bg-gray-600 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-500 transition-colors"
                   >
-                    <Plus className="w-4 h-4" />
+                    <Plus className="w-4 h-4 text-gray-600 dark:text-white" />
                   </button>
                 </div>
               </div>

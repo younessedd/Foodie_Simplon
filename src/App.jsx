@@ -7,6 +7,7 @@ import MealDetail from './pages/MealDetail';
 import Restaurants from './pages/Restaurants';
 import RestaurantDetail from './pages/RestaurantDetail';
 import CategoryPage from './pages/CategoryPage';
+import Orders from './pages/Orders';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/restaurants" element={<Restaurants />} />
             <Route path="/restaurant/:id" element={<RestaurantDetail />} />
             <Route path="/meal/:id" element={<MealDetail />} />
+            <Route path="/orders" element={<Orders />} />
           </Routes>
         </div>
       </BrowserRouter>

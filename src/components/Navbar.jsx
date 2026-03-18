@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ShoppingCart, Sun, Moon, UtensilsCrossed, Store, ChevronDown, MapPin, Globe } from 'lucide-react';
+import { ShoppingCart, Sun, Moon, UtensilsCrossed, Store, ChevronDown, MapPin, Globe, Package } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { useCartStore } from '../store/cartStore';
 import { fetchCategories, getAllCuisines } from '../services/api';
@@ -83,6 +83,14 @@ const Navbar = () => {
             >
               <Store className="w-4 h-4" />
               All Restaurants
+            </Link>
+
+            <Link
+              to="/orders"
+              className="flex items-center gap-2 px-4 py-2 text-gray-600 dark:text-gray-300 hover:text-orange-500 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+            >
+              <Package className="w-4 h-4" />
+              My Orders
             </Link>
           </div>
 

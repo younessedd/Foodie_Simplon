@@ -47,14 +47,14 @@ const MenuItem = ({ item, index, addItem }) => {
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
                   className="w-8 h-8 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-600 rounded-full"
                 >
-                  <Minus className="w-4 h-4" />
+                  <Minus className="w-4 h-4 text-gray-600 dark:text-white" />
                 </button>
-                <span className="w-6 text-center text-sm">{quantity}</span>
+                <span className="w-6 text-center text-sm text-gray-700 dark:text-white">{quantity}</span>
                 <button
                   onClick={() => setQuantity(quantity + 1)}
                   className="w-8 h-8 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-600 rounded-full"
                 >
-                  <Plus className="w-4 h-4" />
+                  <Plus className="w-4 h-4 text-gray-600 dark:text-white" />
                 </button>
               </div>
               <button

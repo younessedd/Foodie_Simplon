@@ -1,9 +1,23 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Plus, Minus, Trash2, ShoppingBag } from 'lucide-react';
 import { useCartStore } from '../store/cartStore';
+import { useNavigate } from 'react-router-dom';
+import useOrderStore from '../store/orderStore';
 
 const CartSidebar = () => {
   const { items, isOpen, toggleCart, removeItem, updateQuantity, getTotalPrice, clearCart } = useCartStore();
+  const navigate = useNavigate();
+  const addOrder = useOrderStore((state) => state.addOrder);
+
+  const handleCheckout = () => {
+    addOrder({
+      items: items,
+      total: getTotalPrice(),
+    });
+    clearCart();
+    toggleCart();
+    navigate('/orders');
+  };
 
   return (
     <AnimatePresence>
@@ -68,14 +82,14 @@ const CartSidebar = () => {
                             onClick={() => updateQuantity(item.id, item.quantity - 1)}
                             className="w-8 h-8 rounded-full bg-white dark:bg-gray-700 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-600"
                           >
-                            <Minus className="w-4 h-4" />
+                            <Minus className="w-4 h-4 text-gray-600 dark:text-white" />
                           </button>
-                          <span className="w-8 text-center font-medium">{item.quantity}</span>
+                          <span className="w-8 text-center font-medium text-gray-700 dark:text-white">{item.quantity}</span>
                           <button
                             onClick={() => updateQuantity(item.id, item.quantity + 1)}
                             className="w-8 h-8 rounded-full bg-white dark:bg-gray-700 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-600"
                           >
-                            <Plus className="w-4 h-4" />
+                            <Plus className="w-4 h-4 text-gray-600 dark:text-white" />
                           </button>
                         </div>
                       </div>
@@ -103,7 +117,10 @@ const CartSidebar = () => {
                 >
                   Clear Cart
                 </button>
-                <button className="w-full bg-orange-500 hover:bg-orange-600 text-white py-4 rounded-xl font-bold transition-all hover:shadow-lg hover:shadow-orange-500/30">
+                <button
+                  onClick={handleCheckout}
+                  className="w-full bg-orange-500 hover:bg-orange-600 text-white py-4 rounded-xl font-bold transition-all hover:shadow-lg hover:shadow-orange-500/30"
+                >
                   Checkout Now
                 </button>
               </div>
